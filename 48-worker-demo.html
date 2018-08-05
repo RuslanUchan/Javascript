@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Worker Demo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="48-style.css">
+</head>
+<body>
+    <div>
+        <label for="message">Message: </label>
+        <input type="text" id="message" class="form-control" />
+        <button type="button" id="send-message" class="btn">Send Message</button>
+    </div>
+    <ul id="message-list"></ul>
+
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script>
+        var worker = new Worker('./48-worker-demo.js');
+
+        // receive messages
+        worker.onmessage = function(e) {
+            var message = e.data;
+            $('#message-list').append('<li>' + message +'</li>');
+        }
+
+        $('#send-message').click(function () {
+            var message = $(#message).val();
+            worker.postMessage(message)
+        });
+    </script>
+</body>
+</html>
