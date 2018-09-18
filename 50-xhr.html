@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <button id="load-data" type="button" class="btn">Load data</button>
+    </div>
+    <div id="output"></div>
+
+    <script src="//ajax.aspnetcdn.com/ajax/JQuery/jquery-2.1.4.min.js"></script>
+    <script>
+
+        // Does the same thing
+
+        $('#load-data').click(function() {
+            $.get('./50-data.txt').done(function(data) {
+                // The data from the server is passed to function via data
+                $('#output').text(data);
+            });
+        });
+
+        // Does the same thing as above
+        // Above use JQuery
+
+        /*$('#load-data').click(function() {
+            var xhr = new XMLHttpRequest();
+
+            // when we get data
+            xhr.onreadystatechange = function() {
+                // make sure we have data
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    var data = xhr.responseText;
+                    $('#output').text(data);
+                }
+            }
+
+            // open connection
+            xhr.open('GET', './50-data.txt');
+            xhr.send();
+        });*/
+
+    </script>
+</body>
+</html>

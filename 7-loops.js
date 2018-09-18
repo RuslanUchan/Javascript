@@ -18,3 +18,9 @@ while(true){
 do {
     // something
 } while(++i < 10);
+
+// accessing array elements like python in
+let arr = ['hi', 'hello', 'howdy'];
+for(word of arr) {
+    console.log(word);
+}

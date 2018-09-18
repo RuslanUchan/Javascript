@@ -70,3 +70,16 @@ where \1 references the first parenthesis
 see more: https://stackoverflow.com/questions/3512471/what-is-a-non-capturing-group-what-does-do
 
 (?:^|[^a-z])([a-z]{3})(?:$|[^a-z])
+
+r'(\d+).*(?::|\d\d\s(.*(?=\n)))'
+r'(\d+).*\d\d\s(.*(?=\n))'
+
+"""
+Python example
+
+p1 = r'(?:foo){1,2}' // matches foo 1 or 2 times
+p2 = r'foo{1,2}' // matches foo or fooo
+s = 'fooooofooooo'
+
+?: remembers the matched, but forget the group (things inside parenthesis or substring matches)
+"""
